@@ -1,0 +1,4 @@
+bin/
+config/jest/
+component/__tests__
+demo/

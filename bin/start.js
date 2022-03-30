@@ -1,0 +1,11 @@
+"use strict";
+const webpack = require("webpack");
+const webpackDevServer = require("webpack-dev-server");
+const getDevConfig = require("../webpack/webpack.dev");
+let argv = process.argv.slice(2);
+const processedArgv = require('minimist')(argv);
+const devConfig = getDevConfig(null, processedArgv);
+argv.push("--config", JSON.stringify(devConfig));
+var compiler = webpack(devConfig);
+var server = new webpackDevServer(compiler, { open: true });
+server.listen(9000);
